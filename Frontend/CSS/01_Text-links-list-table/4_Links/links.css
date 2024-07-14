@@ -1,0 +1,25 @@
+div {
+  background-color: pink;
+  padding: 10px;
+  margin-bottom: 15px;
+  width: 100px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+a:link {
+  color: red;
+  text-decoration: none;
+}
+
+a:visited {
+  color: green;
+}
+
+a:hover {
+  color: aquamarine;
+}
+
+a:active {
+  color: bisque;
+}
