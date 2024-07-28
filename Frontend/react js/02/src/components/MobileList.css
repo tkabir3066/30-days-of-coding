@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.image {
+  margin-right: 20px;
+  max-width: 150px;
+}
