@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./App.css";
 function App() {
   const [userData, setUserData] = useState({
     name: "",
@@ -82,99 +82,104 @@ function App() {
       });
     }
   };
+
+  const userForm = (
+    <form onSubmit={handleSubmit}>
+      <h1>Form Validation</h1>
+      {/* name field */}
+      <div>
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          value={name}
+          onChange={handleChange}
+          placeholder="Enter Your Name"
+        />
+        {errors && <p style={{ color: "red" }}>{errors?.name}</p>}
+      </div>
+      {/* email field */}
+
+      <div>
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          value={email}
+          onChange={handleChange}
+          placeholder="Enter Your Email Id"
+        />
+
+        {errors && <p style={{ color: "red" }}>{errors?.email}</p>}
+      </div>
+
+      {/* password field */}
+      <div>
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          value={password}
+          onChange={handleChange}
+          placeholder="Enter Password"
+        />
+        {errors && <p style={{ color: "red" }}>{errors?.password}</p>}
+      </div>
+
+      {/* Confirm password */}
+      <div>
+        <label htmlFor="confirmPassword">Confirm Password:</label>
+        <input
+          type="password"
+          name="confirmPassword"
+          id="confirmPassword"
+          value={confirmPassword}
+          onChange={handleChange}
+          placeholder="Confirm Password"
+        />
+        {errors && <p style={{ color: "red" }}>{errors?.confirmPassword}</p>}
+      </div>
+
+      <div>
+        <label htmlFor="age">Age:</label>
+        <input
+          type="text"
+          name="age"
+          value={age}
+          onChange={handleChange}
+          placeholder="Enter Your Age"
+        />
+        {errors && <p style={{ color: "red" }}>{errors?.age}</p>}
+      </div>
+
+      {/* gender */}
+      <div>
+        <label htmlFor="gender">Gender:</label>
+        <select
+          name="gender"
+          id="gender"
+          value={gender}
+          onChange={handleChange}
+        >
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        {errors && <p style={{ color: "red" }}>{errors?.gender}</p>}
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  );
   return (
-    <div>
+    <div className="user-form">
       {submitted && (
         <p style={{ color: "green" }}>Form submitted successfully</p>
       )}
-      <form onSubmit={handleSubmit}>
-        {/* name field */}
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            value={name}
-            onChange={handleChange}
-            placeholder="Enter Your Name"
-          />
-          {errors && <p style={{ color: "red" }}>{errors?.name}</p>}
-        </div>
-        {/* email field */}
-
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={email}
-            onChange={handleChange}
-            placeholder="Enter Your Email Id"
-          />
-
-          {errors && <p style={{ color: "red" }}>{errors?.email}</p>}
-        </div>
-
-        {/* password field */}
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={password}
-            onChange={handleChange}
-            placeholder="Enter Password"
-          />
-          {errors && <p style={{ color: "red" }}>{errors?.password}</p>}
-        </div>
-
-        {/* Confirm password */}
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            id="confirmPassword"
-            value={confirmPassword}
-            onChange={handleChange}
-            placeholder="Confirm Password"
-          />
-          {errors && <p style={{ color: "red" }}>{errors?.confirmPassword}</p>}
-        </div>
-
-        <div>
-          <label htmlFor="age">Age:</label>
-          <input
-            type="text"
-            name="age"
-            value={age}
-            onChange={handleChange}
-            placeholder="Enter Your Age"
-          />
-          {errors && <p style={{ color: "red" }}>{errors?.age}</p>}
-        </div>
-
-        {/* gender */}
-        <div>
-          <label htmlFor="gender">Gender:</label>
-          <select
-            name="gender"
-            id="gender"
-            value={gender}
-            onChange={handleChange}
-          >
-            <option value="">Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-          {errors && <p style={{ color: "red" }}>{errors?.gender}</p>}
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+      {!submitted && userForm}
     </div>
   );
 }
