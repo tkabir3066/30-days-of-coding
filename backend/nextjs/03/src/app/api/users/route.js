@@ -14,10 +14,16 @@ export const GET = async (req, res) => {
 // create
 
 export const POST = async (req, res) => {
-  const { name } = await req.json();
+  // const { name } = await req.json();
+  const data = await req.json();
   try {
-    const newData = { name };
-    newData.id = users.length + 1;
+    // const newData = { name };
+    // newData.id = users.length + 1;
+    const newData = {
+      id: users.length + 1,
+      ...data,
+    };
+
     users.push(newData);
     return NextResponse.json(users);
   } catch (err) {
